@@ -10,6 +10,7 @@ public class Pakli {
     String[] masodikOszlop = new String[OSZLOPHOSSZ];
     String[] harmadikOszlop = new String[OSZLOPHOSSZ];
     String[][] pakli = {elsoOszlop,masodikOszlop,harmadikOszlop};
+    String[][] kevertPakli = new String[3][7];
     String[] felvettKartyak = new String[21];
 
     int i = 0;
@@ -20,7 +21,7 @@ public class Pakli {
     }
 
     public void eredetiKiiras() {    
-        for (int j = 0; j < elsoOszlop.length; j++) {
+        for (int j = 0; j < OSZLOPHOSSZ; j++) {
             System.out.printf("|%s| |%s| |%s|" ,elsoOszlop[j], masodikOszlop[j], harmadikOszlop[j]);
             System.out.println("");
         }
@@ -70,5 +71,34 @@ public class Pakli {
             tomb[i] = "";
         }
         return tomb;
+    }
+    public void keveres(int oszlopSzam){
+//        String[] valasztottOszlop = pakli[oszlopSzam];
+//        String[] elsoUjOszlop = pakli[pakli.length-oszlopSzam];
+//        String[] utolsoUjOszlop = pakli[pakli.length-1-(pakli.length-oszlopSzam)];
+            //Ki akartam matekozni de nem sikerült :(
+
+        String[] elsoUjOszlop = null;
+        String[] valasztottOszlop = null;
+        String[] utolsoUjOszlop = null;
+        
+        if (oszlopSzam == 0) {
+            elsoUjOszlop = pakli[1];
+            valasztottOszlop = pakli[0];
+            utolsoUjOszlop = pakli[2];
+        } else if(oszlopSzam == 2) {
+            elsoUjOszlop = pakli[1];
+            valasztottOszlop = pakli[2];
+            utolsoUjOszlop = pakli[0];
+            
+        }else{
+            elsoUjOszlop = pakli[0];
+            valasztottOszlop = pakli[1];
+            utolsoUjOszlop = pakli[2];
+        }
+        for (int j = 0; j < OSZLOPHOSSZ; j++) {
+            System.out.printf("|%s| |%s| |%s|" ,elsoUjOszlop[j], valasztottOszlop[j], utolsoUjOszlop[j]);
+            System.out.println("");
+        }
     }
 }

@@ -12,6 +12,7 @@ public class GondolatOlvasoKartya {
         Pakli pakli = new Pakli();
         pakli.eredetiKiiras();
         int valasz = valaszBekeres();
+        pakli.keveres(valasz);
     }
 
     private static int valaszBekeres() {
@@ -24,7 +25,6 @@ public class GondolatOlvasoKartya {
         }
         return valasz;
     }
-   
     
 }
 
