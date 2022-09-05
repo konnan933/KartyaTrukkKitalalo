@@ -5,9 +5,11 @@ import java.util.Random;
 public class Pakli {
 
     Random rnd = new Random();
-
-    String[][] pakli = new String[7][3];
-
+    private final int OSZLOPHOSSZ = 7;
+    String[] elsoOszlop = new String[OSZLOPHOSSZ];
+    String[] masodikOszlop = new String[OSZLOPHOSSZ];
+    String[] harmadikOszlop = new String[OSZLOPHOSSZ];
+    String[][] pakli = {elsoOszlop,masodikOszlop,harmadikOszlop};
     String[] felvettKartyak = new String[21];
 
     int i = 0;
@@ -15,31 +17,40 @@ public class Pakli {
 
     public Pakli() {
         pakliLetrehozas();
-    }    
-    
-    
-    private void pakliLetrehozas(){
-        this.felvettKartyak  = feltoltes(felvettKartyak);
+    }
 
-    while(i != this.pakli.length){
+    
+
+    private void pakliLetrehozas() {
+        this.felvettKartyak = feltoltes(felvettKartyak);
+        while (i != OSZLOPHOSSZ) {
             String[] egySor = new String[3];
-        int j = 0;
-        while (j != 3) {
-            String lap = Kartya.KARTYAK[rnd.nextInt(Kartya.KARTYAK.length)] + Kartya.ERTEKEK[rnd.nextInt(Kartya.ERTEKEK.length)];
-            Boolean benne = bennevanE(felvettKartyak, lap);
-            if (benne) {
-                felvettKartyak[felvettKartyakIndex] = lap;
-                egySor[j] = lap;
-                felvettKartyakIndex++;
-                j++;
-            }
+            int j = 0;
+            while (j != 3) {
+                String lap = Kartya.KARTYAK[rnd.nextInt(Kartya.KARTYAK.length)] + Kartya.ERTEKEK[rnd.nextInt(Kartya.ERTEKEK.length)];
+                Boolean benne = bennevanE(felvettKartyak, lap);
+                if (benne) {
+                    oszlopFeltoltes(j, lap);
+                    felvettKartyak[felvettKartyakIndex] = lap;
+                    egySor[j] = lap;
+                    felvettKartyakIndex++;
+                    j++;
+                }
 
+            }
+            i++;
         }
-        pakli[i] = egySor;
-        i++;
     }
+
+    private void oszlopFeltoltes(int index, String lap) {
+        if (index == 0) {
+            elsoOszlop[i] = lap;
+        } else if (index == 1) {
+            masodikOszlop[i] = lap;
+        } else {
+            harmadikOszlop[i] = lap;
+        }
     }
-    
 
     private static Boolean bennevanE(String[] felvettKartyak, String lap) {
         int i = 0;
