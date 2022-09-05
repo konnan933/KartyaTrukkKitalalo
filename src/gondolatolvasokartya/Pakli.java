@@ -13,7 +13,7 @@ public class Pakli {
     String[][] pakli = {elsoOszlop, masodikOszlop, harmadikOszlop};
     String[][] kevertPakli = new String[3][7];
     String[] felvettKartyak = new String[21];
-
+    String[] valasztottOszlop = new String[7];
     int i = 0;
     int felvettKartyakIndex = 0;
 
@@ -21,9 +21,9 @@ public class Pakli {
         pakliLetrehozas();
     }
 
-    public void eredetiKiiras() {
+    public void eredetiKiiras(String[][] pakli) {
         for (int j = 0; j < OSZLOPHOSSZ; j++) {
-            System.out.printf("|%s| |%s| |%s|", elsoOszlop[j], masodikOszlop[j], harmadikOszlop[j]);
+            System.out.printf("|%s| |%s| |%s|", pakli[0][j], pakli[1][j], pakli[2][j]);
             System.out.println("");
         }
     }
@@ -75,19 +75,32 @@ public class Pakli {
 
     public void keveres(int oszlopSzam) {
         segitoOszlopKevereshez = pakli[oszlopSzam];
-        
 
         if (oszlopSzam == 0) {
-              pakli[0] = pakli[1];
-              pakli[1] = segitoOszlopKevereshez;   
+            pakli[0] = pakli[1];
+            pakli[1] = segitoOszlopKevereshez;
         } else if (oszlopSzam == 2) {
             pakli[2] = pakli[1];
             pakli[1] = segitoOszlopKevereshez;
+        } 
 
-        }
-        for (int j = 0; j < OSZLOPHOSSZ; j++) {
-            System.out.printf("|%s| |%s| |%s|", pakli[0][j], pakli[1][j], pakli[2][j]);
-            System.out.println("");
+    }
+
+    public void kevertKiiras(String[][] pakli) {
+        int j = 0;
+        while (j < 3) {
+            for (int k = 0; k < pakli[j].length; k++) {
+                System.out.printf("|%s|", pakli[j][k]);
+                if (j == 0 && (k == 2 || k == 5)) {
+                    System.out.println("");
+                } else if ((j == 1 && (k == 1 || k == 4))) {
+                    System.out.println("");
+                }else if(j == 2 && (k == 0 || k == 3 || k == 6)){
+                    System.out.println("");
+                }
+            }
+            j++;
+
         }
 
     }
