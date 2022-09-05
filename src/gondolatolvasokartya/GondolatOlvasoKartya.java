@@ -9,16 +9,11 @@ public class GondolatOlvasoKartya {
     }
 
     private static void foProgram() {
-        kiiras();
+        Pakli pakli = new Pakli();
+        pakli.kiiras();
     }
 
-    private static void kiiras() {
-        Pakli pakli = new Pakli();
-        for (int j = 0; j < pakli.elsoOszlop.length; j++) {
-            System.out.printf("|%s| |%s| |%s|", pakli.elsoOszlop[j], pakli.masodikOszlop[j], pakli.harmadikOszlop[j]);
-            System.out.println("");
-        }
-    }
+    
 }
 
 

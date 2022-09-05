@@ -19,7 +19,12 @@ public class Pakli {
         pakliLetrehozas();
     }
 
-    
+    public  void kiiras() {
+        for (int j = 0; j < elsoOszlop.length; j++) {
+            System.out.printf("|%s| |%s| |%s|",elsoOszlop[j], masodikOszlop[j], harmadikOszlop[j]);
+            System.out.println("");
+        }
+    }
 
     private void pakliLetrehozas() {
         this.felvettKartyak = feltoltes(felvettKartyak);
