@@ -1,14 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 
 package gondolatolvasokartya;
 
-/**
- * 
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
 public class Kartya {
 
+    public final static String[] KARTYAK = {"P","T","Z","M"};
+        
+    public final static String[] ERTEKEK = {"Á","K","F","X","9","8"};
+
+    
 }

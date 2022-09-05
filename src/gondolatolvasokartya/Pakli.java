@@ -15,10 +15,7 @@ public class Pakli {
 
     public Pakli() {
         pakliLetrehozas();
-    }
-
-    
-    
+    }    
     
     
     private void pakliLetrehozas(){
