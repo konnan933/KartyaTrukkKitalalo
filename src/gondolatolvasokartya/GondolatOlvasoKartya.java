@@ -28,11 +28,15 @@ public class GondolatOlvasoKartya {
     private static void kitalalas() {
         Pakli pakli = new Pakli();
         pakli.eredetiKiiras(pakli.pakli);
-        for (int i = 0; i < 3; i++) {
-            int valasz = valaszBekeres();
+        int valasz = valaszBekeres();
+        pakli.elsoValasztott(valasz); 
+        for (int i = 0; i < 2; i++) {
+            valasz = valaszBekeres();
             pakli.keveres(valasz);
             pakli.kevertKiiras(pakli.pakli);
         }
     }
+
+    
 
 }

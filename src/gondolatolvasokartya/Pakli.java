@@ -14,6 +14,7 @@ public class Pakli {
     String[][] kevertPakli = new String[3][7];
     String[] felvettKartyak = new String[21];
     String[] valasztottOszlop = new String[7];
+    int keveresSzam = 0;
     int i = 0;
     int felvettKartyakIndex = 0;
 
@@ -73,7 +74,24 @@ public class Pakli {
         return tomb;
     }
 
-    public void keveres(int oszlopSzam) {
+    public void elsoValasztott(int valasz) {
+        valasztottOszlop = pakli[valasz];
+    }
+
+    public String[][] keveres(int oszlopSzam) {
+        segitoOszlopKevereshez = pakli[oszlopSzam];
+
+//        String[] elsoUjOszlop = {masodikOszlop[0], masodikOszlop[3],
+//            masodikOszlop[6], elsoOszlop[2],
+//            elsoOszlop[5], harmadikOszlop[1], harmadikOszlop[4]};
+//        String[] masodikUjOszlop = {masodikOszlop[1],masodikOszlop[4],
+//            elsoOszlop[0],elsoOszlop[3],
+//            elsoOszlop[6],harmadikOszlop[2],harmadikOszlop[5]};
+//        String[] harmadikUjOszlop = {masodikOszlop[2],masodikOszlop[5],
+//            elsoOszlop[1],elsoOszlop[4],
+//            harmadikOszlop[0],harmadikOszlop[3],harmadikOszlop[6]};
+//        
+        
         segitoOszlopKevereshez = pakli[oszlopSzam];
 
         if (oszlopSzam == 0) {
@@ -83,6 +101,11 @@ public class Pakli {
             pakli[2] = pakli[1];
             pakli[1] = segitoOszlopKevereshez;
         } 
+
+
+        
+
+        return pakli;
 
     }
 
@@ -95,7 +118,7 @@ public class Pakli {
                     System.out.println("");
                 } else if ((j == 1 && (k == 1 || k == 4))) {
                     System.out.println("");
-                }else if(j == 2 && (k == 0 || k == 3 || k == 6)){
+                } else if (j == 2 && (k == 0 || k == 3 || k == 6)) {
                     System.out.println("");
                 }
             }
