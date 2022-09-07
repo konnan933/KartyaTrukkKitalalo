@@ -9,7 +9,7 @@ public class GondolatOlvasoKartya {
     }
 
     private static void foProgram() {
-
+        
         kitalalas();
 
     }
@@ -27,14 +27,18 @@ public class GondolatOlvasoKartya {
 
     private static void kitalalas() {
         Pakli pakli = new Pakli();
-        pakli.eredetiKiiras(pakli.pakli);
+        pakli.kiIras(pakli.pakli);
         int valasz = valaszBekeres();
         pakli.elsoValasztott(valasz); 
-        for (int i = 0; i < 2; i++) {
-            valasz = valaszBekeres();
-            pakli.keveres(valasz);
+        for (int i = 0; i < 2; i++) { 
+            if (i == 1 || i == 0) {
+                pakli.keveres(valasz);
+            }
             pakli.kevertKiiras(pakli.pakli);
+            valasz = valaszBekeres();
         }
+        String gondolKartya = pakli.melyikKartya(pakli.pakli[valasz]);
+        System.out.printf("A gondolt kártya az/a %s",gondolKartya);
     }
 
     
